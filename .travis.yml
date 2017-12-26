@@ -3,6 +3,8 @@ jdk:
 - oraclejdk8
 script: mvn clean install
 
+after_success:
+- bash <(curl -s https://codecov.io/bash) -t 09262c25-d3dc-44a4-a774-031241f4f055
 deploy:
   provider: heroku
   api_key:
