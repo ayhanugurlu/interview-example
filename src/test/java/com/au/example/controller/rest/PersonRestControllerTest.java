@@ -53,8 +53,8 @@ public class PersonRestControllerTest {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        MvcResult mvcResult = this.mvc.perform(get("/persons/test"))
-                .andExpect(status().isOk()).
+        MvcResult mvcResult = this.mvc.perform(get("/rest/persons/2/test"))
+                .andExpect(status().isAccepted()).
                         andExpect(content()
                                 .contentType(MediaType.APPLICATION_JSON_UTF8)).andReturn();
 
@@ -65,7 +65,7 @@ public class PersonRestControllerTest {
 
     @Test
     public void getPersonInXML() throws Exception {
-        MvcResult mvcResult = this.mvc.perform(get("/persons/test.xml"))
+        MvcResult mvcResult = this.mvc.perform(get("/rest/persons/test.xml"))
                 .andExpect(status().isOk()).
                         andExpect(content()
                                 .contentType("application/xml;charset=UTF-8")).andReturn();
